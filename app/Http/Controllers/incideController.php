@@ -67,10 +67,11 @@ class incideController extends Controller
                                 ->where('numeroEnlace', '=', $sql[0]->numeroEnlace)
                                 ->update(['generado' => 1, 'hashedNumero' => base64_encode($decrypted)]);
                         # primera vez
+                        $base64 = base64_encode($decrypted);
                         $qrCode = \QrCode::format('png')
                             ->size(200)
                             ->color(176,154,91)
-                            ->generate('localhost:8000/personal/generado/'.$sql[0]->numeroEnlace);
+                            ->generate('localhost:8000/personal/generado/'.$base64);
 
                         /*return view('qrCode')->with('codes', $qrCode);*/
                         $codigo = $qrCode;
