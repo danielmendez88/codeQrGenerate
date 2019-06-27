@@ -26,7 +26,7 @@
                 	@if($generado == 1)
                 		<b>Generado</b>
                 	@else
-                		<b>Generado</b>
+                		<b>No Generado</b>
                 	@endif
                 </li>
               </ul>

@@ -11,9 +11,7 @@
 |
 */
 
-Route::resource('/', 'incideController');
-
-Route::get('qr-code-g', function () {
+/*Route::get('qr-code-g', function () {
 
   $qrcodes = \QrCode::format('png')
   			->size(200)
@@ -23,6 +21,15 @@ Route::get('qr-code-g', function () {
     
 
   return view('qrCode')->with('codes', $qrcodes);
+});*/
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+// ruta con midlaware
+Route::group(['middleware' => 'auth'], function() {
+	// rutas
+	Route::get('/personal/detalle/{id}', 'incideController@show')->name('personal.detail');
+	Route::resource('/', 'incideController');
 });
-// rutas
-Route::get('/personal/detalle/{id}', 'incideController@show')->name('personal.detail');
