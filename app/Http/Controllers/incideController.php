@@ -5,6 +5,7 @@ namespace CodeQr\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use CodeQr\Personal;
+use Illuminate\Support\Facades\Auth;
 
 class incideController extends Controller
 {
@@ -50,12 +51,14 @@ class incideController extends Controller
      */
     public function show($id)
     {
+        #usuario logueado
+        $userId = Auth::user()->id;
         // si hay un numero de enalace
         if ($id) {
             # code...
             $decrypted = base64_decode($id);
             try {
-                $sql = \CodeQr\Personal::select('numeroEnlace', 'generado', 'hashedNumero', 'nombre', 'categoria', 'puesto', 'activo')
+                $sql = \CodeQr\Personal::select('personals.id AS idpersonal', 'numeroEnlace', 'generado', 'hashedNumero', 'nombre', 'categoria', 'puesto', 'activo')
                                 ->where('personals.numeroEnlace', '=', $decrypted)
                                 ->leftJoin('organo_administrativos', 'personals.organo_id', '=', 'organo_administrativos.id')
                                 ->leftJoin('area_adscripcions', 'personals.adscripcion_id', '=', 'area_adscripcions.id')
@@ -66,6 +69,9 @@ class incideController extends Controller
                         $update = Personal::select('generado', 'hashedNumero')
                                 ->where('numeroEnlace', '=', $sql[0]->numeroEnlace)
                                 ->update(['generado' => 1, 'hashedNumero' => base64_encode($decrypted)]);
+                        # despúes de actualizar se agregan a la tabla pivote el usuario que está realizando la operación
+                        $personal = \CodeQr\Personal::find($sql[0]->idpersonal);
+                        $personal->usuarios()->attach($userId);
                         # primera vez
                         $base64 = base64_encode($decrypted);
                         $qrCode = \QrCode::format('png')
@@ -92,6 +98,10 @@ class incideController extends Controller
                             ->size(200)
                             ->color(176,154,91)
                             ->generate('localhost:8000/personal/generado/'.$base64);
+
+                        #agregar al usuario que vuelve a generarlo
+                        $personal = \CodeQr\Personal::find($sql[0]->idpersonal);
+                        $personal->usuarios()->attach($userId);
 
   
                         $codigo = $qrCode;

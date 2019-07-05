@@ -14,7 +14,8 @@ class CreateAreaAdscripcionsTable extends Migration
     public function up()
     {
         Schema::create('area_adscripcions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+            $table->BigIncrements('id');
             $table->string('area', 250);
             $table->integer('organo_id')->unsigned();
             $table->timestamps();

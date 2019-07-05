@@ -2,6 +2,5 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Derechos &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>&copy; 2019 <a href="https://adminlte.io">Icatech</a>.</strong> Todos los Derechos Reservados.
  </footer>

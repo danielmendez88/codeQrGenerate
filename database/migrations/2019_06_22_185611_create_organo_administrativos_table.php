@@ -14,7 +14,8 @@ class CreateOrganoAdministrativosTable extends Migration
     public function up()
     {
         Schema::create('organo_administrativos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+            $table->BigIncrements('id');
             $table->string('organo', 200);
             $table->text('descripcion');
             $table->timestamps();

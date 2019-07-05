@@ -23,13 +23,25 @@
   return view('qrCode')->with('codes', $qrcodes);
 });*/
 
+Route::get('/', function(){
+	return Redirect::to('/login');
+});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 // ruta con midlaware
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => ['preventBackButton','auth']], function() {
 	// rutas
 	Route::get('/personal/detalle/{id}', 'incideController@show')->name('personal.detail');
 	Route::resource('/', 'incideController');
+	Route::get('/home', 'HomeController@index')->name('home');
+});
+
+/**
+*	cerrar sesión
+*/
+Route::get('/personal/logout', function(){
+		Session::flush();
+		Auth::logout();
+		return Redirect::to("/login");
 });

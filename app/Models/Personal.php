@@ -5,6 +5,7 @@ namespace CodeQr;
 use Illuminate\Database\Eloquent\Model;
 use CodeQr\AreaAdscripcion;
 use CodeQr\OrganoAdministrativo;
+use CodeQr\User;
 
 class Personal extends Model
 {
@@ -26,5 +27,10 @@ class Personal extends Model
     public function organoasAdmin()
     {
     	return $this->belongsTo(OrganoAdministrativo::class);
+    }
+
+    public function usuarios()
+    {
+        return $this->belongsToMany(User::class, 'user_personal', 'personal_id', 'user_id');
     }
 }
