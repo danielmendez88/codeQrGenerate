@@ -44,18 +44,11 @@
               <!-- Content Header (Page header) -->
               <section class="content-header">
                 <h1>
-                  Generador de QR de nómina
-                  <small>Blank example to the fixed layout</small>
+                  Generador de QR de Personal
                 </h1>
               </section>
               <!--section content-->
               <section class="content">
-                <div class="callout callout-info">
-                  <h4>Tip!</h4>
-
-                  <p>Add the fixed class to the body tag to get this layout. The fixed layout is your best option if your sidebar
-                    is bigger than your content because it prevents extra unwanted scrolling.</p>
-                </div>
                 <!--Default Box-->
                 @yield("content")
                 <!--Default Box End-->

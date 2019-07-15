@@ -45,3 +45,7 @@ Route::get('/personal/logout', function(){
 		Auth::logout();
 		return Redirect::to("/login");
 });
+/**
+* ruta para consumir el servicio web
+*/
+Route::get('/personal/generado/{id}', 'generadoController@show')->name('personal.generado');

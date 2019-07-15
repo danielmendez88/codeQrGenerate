@@ -1,6 +1,15 @@
 @extends("theme.$theme.layout")
 
 @section('content')
+
+@if($generado == 1)
+<div class="callout callout-success">
+  <h4>Generado éxitosamente</h4>
+
+  <p>se ha generado el código QR del personal seleccionado.</p>
+</div>
+@endif
+
 <div class="row">
         <div class="col-md-3">
 
@@ -78,7 +87,7 @@
 
                   <ul class="list-inline">
                     <li>
-                    	<a href="data:image/png;base64, {!! base64_encode($codigo) !!} " download="enlace_{{$numeroEnlace}}"><i class="fa fa-download"></i> Descargar Imagen de Código</a>
+                    	<a href="data:image/png;base64, {!! base64_encode($codigo) !!} " download="enlace_{{$numeroEnlace}}.png"><i class="fa fa-download"></i> Descargar Imagen de Código</a>
                     </li>
                   </ul>
                 </div>
