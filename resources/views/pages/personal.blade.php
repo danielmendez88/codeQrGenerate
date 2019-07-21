@@ -25,7 +25,7 @@
                 	@foreach($personales as $personal)
 	            	<tr>
 	            		<td>{{$personal->numeroEnlace}}</td>
-	            		<td>{{$personal->nombre}}</td>
+	            		<td>{{$personal->nombre}} {{$personal->apaterno}} {{$personal->amaterno}}</td>
 	            		<td>{{$personal->puesto}}</td>
 	            		<td>{{$personal->categoria}}</td>
 	            		<td>

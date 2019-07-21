@@ -35,6 +35,8 @@ Route::group(['middleware' => ['preventBackButton','auth']], function() {
 	Route::get('/personal/detalle/{id}', 'incideController@show')->name('personal.detail');
 	Route::resource('/', 'incideController');
 	Route::get('/home', 'HomeController@index')->name('home');
+	// ruta de formulario de personal para modificación
+	Route::get('/updatepersonal/{id}', 'personalController@edit')->name('personalForm');
 });
 
 /**

@@ -19,7 +19,7 @@
 
               <h3 class="profile-username text-center">{{ $nombre }}</h3>
 
-              <p class="text-muted text-center">Software Engineer</p>
+              <p class="text-muted text-center">{{ $apaterno }} {{ $amaterno }}</p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">

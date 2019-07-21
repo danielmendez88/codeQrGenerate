@@ -38,7 +38,7 @@
           </ul>
         </li>
         <li>
-          <a href="../calendar.html">
+          <a href="#">
             <i class="fa fa-calendar"></i> <span>Herramientas</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-red">3</small>

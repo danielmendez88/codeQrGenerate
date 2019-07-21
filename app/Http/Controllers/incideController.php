@@ -58,7 +58,7 @@ class incideController extends Controller
             # code...
             $decrypted = base64_decode($id);
             try {
-                $sql = \CodeQr\Personal::select('personals.id AS idpersonal', 'numeroEnlace', 'generado', 'hashedNumero', 'nombre', 'categoria', 'puesto', 'activo')
+                $sql = \CodeQr\Personal::select('personals.id AS idpersonal', 'numeroEnlace', 'generado', 'hashedNumero', 'nombre', 'apaterno', 'amaterno', 'categoria', 'puesto', 'activo')
                                 ->where('personals.numeroEnlace', '=', $decrypted)
                                 ->leftJoin('organo_administrativos', 'personals.organo_id', '=', 'organo_administrativos.id')
                                 ->leftJoin('area_adscripcions', 'personals.adscripcion_id', '=', 'area_adscripcions.id')
@@ -87,8 +87,10 @@ class incideController extends Controller
                         $categoria = $sql[0]->categoria;
                         $puesto = $sql[0]->puesto;
                         $activo = $sql[0]->activo;
+                        $apaterno = $sql[0]->apaterno;
+                        $amaterno = $sql[0]->amaterno;
                         $numeroEnlace = $sql[0]->numeroEnlace;
-                        return view('pages.perfil', compact('codigo', 'nombre', 'enlace', 'generado', 'categoria', 'puesto', 'activo', 'numeroEnlace'));
+                        return view('pages.perfil', compact('codigo', 'nombre', 'apaterno', 'amaterno', 'enlace', 'generado', 'categoria', 'puesto', 'activo', 'numeroEnlace'));
                     }
                     else
                     {
@@ -111,9 +113,11 @@ class incideController extends Controller
                         $categoria = $sql[0]->categoria;
                         $puesto = $sql[0]->puesto;
                         $activo = $sql[0]->activo;
+                        $apaterno = $sql[0]->apaterno;
+                        $amaterno = $sql[0]->amaterno;
                         $numeroEnlace = $sql[0]->numeroEnlace;
                         //return view('qrCode')->with('codes', $qrCode);
-                        return view('pages.perfil', compact('codigo', 'nombre', 'enlace', 'generado', 'categoria', 'puesto', 'activo', 'numeroEnlace'));
+                        return view('pages.perfil', compact('codigo', 'nombre', 'apaterno', 'amaterno', 'enlace', 'generado', 'categoria', 'puesto', 'activo', 'numeroEnlace'));
                     }
                     # validamos si existe la consulta
                 }

@@ -21,7 +21,7 @@ class generadoController extends Controller
     		$decrypted = base64_decode($id);
     		try {
     			#generamos la consulta
-    			$query = Personal::select('personals.id AS idpersonal', 'numeroEnlace', 'generado', 'hashedNumero', 'nombre', 'categoria', 'puesto', 'activo', 'organo_administrativos.organo AS orgAdmin', 'area_adscripcions.area AS areaAdscipcion')
+    			$query = Personal::select('personals.id AS idpersonal', 'numeroEnlace', 'generado', 'hashedNumero', 'nombre', 'amaterno', 'apaterno', 'categoria', 'puesto', 'activo', 'organo_administrativos.organo AS orgAdmin', 'area_adscripcions.area AS areaAdscipcion')
     			                   ->where('personals.numeroEnlace', '=', $decrypted)
     			                   ->leftJoin('organo_administrativos', 'personals.organo_id', '=', 'organo_administrativos.id')
     			                   ->leftJoin('area_adscripcions', 'personals.adscripcion_id', '=', 'area_adscripcions.id')
@@ -32,6 +32,8 @@ class generadoController extends Controller
     			 	if ($query[0]->activo == true) {
     			 		# validamos si está en activo
                         $nombre = $query[0]->nombre;
+                        $amaterno = $query[0]->amaterno;
+                        $apaterno = $query[0]->apaterno;
                         $enlace = $query[0]->numeroEnlace;
                         $generado = $query[0]->generado;
                         $categoria = $query[0]->categoria;
@@ -40,7 +42,7 @@ class generadoController extends Controller
                         $numeroEnlace = $query[0]->numeroEnlace;
                         $orgAdmin = $query[0]->orgAdmin;
                         $areaAdscipcion = $query[0]->areaAdscipcion;
-                        return view('pages.credencial', compact('codigo', 'nombre', 'enlace', 'generado', 'categoria', 'puesto', 'activo', 'numeroEnlace', 'orgAdmin', 'areaAdscipcion'));
+                        return view('pages.credencial', compact('codigo', 'nombre', 'amaterno', 'apaterno', 'enlace', 'generado', 'categoria', 'puesto', 'activo', 'numeroEnlace', 'orgAdmin', 'areaAdscipcion'));
     			 	}
     			 	else
     			 	{
