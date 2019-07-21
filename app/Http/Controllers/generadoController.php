@@ -42,7 +42,7 @@ class generadoController extends Controller
                         $numeroEnlace = $query[0]->numeroEnlace;
                         $orgAdmin = $query[0]->orgAdmin;
                         $areaAdscipcion = $query[0]->areaAdscipcion;
-                        return view('pages.credencial', compact('codigo', 'nombre', 'amaterno', 'apaterno', 'enlace', 'generado', 'categoria', 'puesto', 'activo', 'numeroEnlace', 'orgAdmin', 'areaAdscipcion'));
+                        return view('pages.credencial', compact('nombre', 'amaterno', 'apaterno', 'enlace', 'generado', 'categoria', 'puesto', 'activo', 'numeroEnlace', 'orgAdmin', 'areaAdscipcion'));
     			 	}
     			 	else
     			 	{
