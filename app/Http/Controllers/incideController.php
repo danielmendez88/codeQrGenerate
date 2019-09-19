@@ -77,7 +77,7 @@ class incideController extends Controller
                         $qrCode = \QrCode::format('png')
                             ->size(200)
                             ->color(176,154,91)
-                            ->generate('localhost:8000/personal/generado/'.$base64);
+                            ->generate('http://187.157.114.61/personal/generado/'.$base64);
 
                         /*return view('qrCode')->with('codes', $qrCode);*/
                         $codigo = $qrCode;
@@ -99,7 +99,7 @@ class incideController extends Controller
                         $qrCode = \QrCode::format('png')
                             ->size(200)
                             ->color(176,154,91)
-                            ->generate('localhost:8000/personal/generado/'.$base64);
+                            ->generate('http://187.157.114.61/personal/generado/'.$base64);
 
                         #agregar al usuario que vuelve a generarlo
                         $personal = \CodeQr\Personal::find($sql[0]->idpersonal);

@@ -9,7 +9,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">Detalle general de personal</p>
 
-    <form action="../../index.html" method="post">
+    <form method="post">
       <div class="form-group has-feedback">
         <h5>{{ $nombre }} {{ $apaterno }} {{ $amaterno }}</h5>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -24,10 +24,11 @@
         <h5><label>Número Enlace:</label> {{ $numeroEnlace }}</h5>
       </div>
       <div class="form-group has-feedback">
-        <h5><label>O. Administrativo:</label> {{ $orgAdmin }}</h5>
+        <h5><label>O. Administrativo:</label> {{ $areaAdscipcion }}</h5>
       </div>
-      <div class="form-group has-feedback">
-        <h5><label>A. de Adscripción:</label> {{ $areaAdscipcion }}</h5>
+	  <!--area de adscripcion-->
+	  <div class="form-group has-feedback">
+        <h5><label>A. de Adscripción:</label> {{ $orgAdmin }}</h5>
       </div>
       <div class="row">
         <div class="col-xs-4">
