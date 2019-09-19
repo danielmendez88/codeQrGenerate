@@ -62,6 +62,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'preventBackButton' => \CodeQr\Http\Middleware\PreventBackButton::class,
+        'role' => \CodeQr\Http\Middleware\CheckRole::class,
     ];
 
     /**

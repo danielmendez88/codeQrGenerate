@@ -37,6 +37,8 @@ Route::group(['middleware' => ['preventBackButton','auth']], function() {
 	Route::get('/home', 'HomeController@index')->name('home');
 	// ruta de formulario de personal para modificación
 	Route::get('/updatepersonal/{id}', 'personalController@edit')->name('personalForm');
+	// ruta para administrador
+	Route::get('/administrador', 'AdminController@index')->name('administrador');
 });
 
 /**
