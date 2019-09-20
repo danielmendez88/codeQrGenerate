@@ -16,12 +16,14 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="{{ asset("img/favicon.ico") }}">
 
-<link rel="stylesheet" href="{{asset("assets/sufee/vendors/bootstrap/dist/css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/sufee/vendors/bootstrap/dist/css/bootstrap.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/sufee/vendors/font-awesome/css/font-awesome.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/sufee/vendors/themify-icons/css/themify-icons.css")}}">
     <link rel="stylesheet" href="{{asset("assets/sufee/vendors/flag-icon-css/css/flag-icon.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/sufee/vendors/selectFX/css/cs-skin-elastic.css")}}">
     <link rel="stylesheet" href="{{asset("assets/sufee/vendors/jqvmap/dist/jqvmap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/sufee/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/sufee/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css")}}">
 
 
     <link rel="stylesheet" href="{{asset("assets/sufee/assets/css/style.css")}}">
@@ -53,15 +55,6 @@
 
         <div class="content mt-3">
 
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                    <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-
             @yield("content")
             
             <!--/.col-->
@@ -85,6 +78,16 @@
     <script src="{{asset("assets/sufee/vendors/jqvmap/dist/jquery.vmap.min.js")}}"></script>
     <script src="{{asset("assets/sufee/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js")}}"></script>
     <script src="{{asset("assets/sufee/vendors/jqvmap/dist/maps/jquery.vmap.world.js")}}"></script>
+    <!--datatables-->
+    <script src="{{asset("assets/sufee/vendors/datatables.net/js/jquery.dataTables.min.js")}}"></script>
+    <script src="{{asset("assets/sufee/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
+    <script src="{{asset("assets/sufee/vendors/datatables.net-buttons/js/dataTables.buttons.min.js")}}"></script>
+    <script src="{{asset("assets/sufee/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js")}}"></script>
+
+    <script src="{{asset("assets/sufee/vendors/datatables.net-buttons/js/buttons.html5.min.js")}}"></script>
+    <script src="{{asset("assets/sufee/vendors/datatables.net-buttons/js/buttons.print.min.js")}}"></script>
+    <script src="{{asset("assets/sufee/vendors/datatables.net-buttons/js/buttons.colVis.min.js")}}"></script>
+    <script src="{{asset("assets/sufee/assets/js/init-scripts/data-table/datatables-init.js")}}"></script>
     <script>
         (function($) {
             "use strict";

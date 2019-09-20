@@ -12,7 +12,7 @@ class Personal extends Model
     //
     protected $table = 'personals';
 
-    protected $fillable = ['id', 'numeroEnlace', 'categoria', 'organo_id', 'adscripcion_id', 'puesto', 'nombre', 'activo', 'generado'];
+    protected $fillable = ['id', 'numeroEnlace', 'categoria', 'organo_id', 'adscripcion_id', 'puesto', 'nombre', 'activo', 'generado', 'apaterno', 'amaterno', 'hashedNumero'];
 
     protected $hidden = ['created_at', 'updated_at'];
     
