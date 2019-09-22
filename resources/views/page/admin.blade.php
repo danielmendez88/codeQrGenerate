@@ -12,7 +12,7 @@
                         <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
                         <div class="stat-content dib">
                             <div class="stat-text">Trabajadores</div>
-                            <div class="stat-digit">961</div>
+                            <div class="stat-digit">{{ $personalCount }}</div>
                         </div>
                     </a>
                 </div>
@@ -27,7 +27,7 @@
                     <div class="stat-icon dib"><i class="ti-user text-success border-success"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text">Alta</div>
-                        <div class="stat-digit">1,012</div>
+                        <div class="stat-digit">{{ $personalAltaCount }}</div>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <div class="stat-icon dib"><i class="ti-user text-danger border-danger"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text">Bajas</div>
-                        <div class="stat-digit">770</div>
+                        <div class="stat-digit">{{ $personalBajaCount }}</div>
                     </div>
                 </div>
             </div>

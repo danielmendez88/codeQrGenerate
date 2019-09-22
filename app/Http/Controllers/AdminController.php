@@ -7,6 +7,7 @@ use CodeQr\Personal;
 use CodeQr\Models\AreaAdscripcion as Area;
 use CodeQr\Models\OrganoAdministrativo as Organo;
 use Validator,Redirect,Response;
+use Illuminate\Support\Facades\Crypt;
 
 class AdminController extends Controller
 {
@@ -18,7 +19,12 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('page.admin');
+        $personalCount = Personal::count();
+        $personalAlta = Personal::WHERE('activo', '=', 1)->get();
+        $personalBaja = Personal::WHERE('activo', '=', 0)->get();
+        $personalAltaCount = $personalAlta->count();
+        $personalBajaCount = $personalBaja->count();
+        return view('page.admin', compact('personalCount', 'personalAltaCount', 'personalBajaCount'));
     }
 
     /**
@@ -92,6 +98,14 @@ class AdminController extends Controller
     public function show($id)
     {
         //
+        $numeroEnlace = Crypt::decrypt($id);
+        $area = new Area();
+        $orgAdmin = new Organo();
+        $personalDetails = Personal::where('numeroEnlace', $numeroEnlace)->firstOrFail();
+        $organoAdmin = $orgAdmin::pluck('organo', 'id');
+        $areaAdscrip = $area::pluck('area', 'id');
+
+        return view('page.updated', compact('personalDetails', 'organoAdmin', 'areaAdscrip'));
     }
 
     /**
@@ -145,5 +159,15 @@ class AdminController extends Controller
         $personales = new Personal;
         $person = $personales->all();
         return view('page.registroPersonal', compact('person'));
+    }
+
+    /**
+    *
+    */
+    public function updatePersonal()
+    {
+        $personales = new Personal;
+        $person = $personales->all();
+        return view('page.updatePersonal', compact('person'));
     }
 }

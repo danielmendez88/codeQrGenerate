@@ -42,6 +42,8 @@ Route::group(['middleware' => ['preventBackButton','auth']], function() {
 	Route::get('/administrador/add-personal', 'AdminController@addpersonal')->name('add.personal');
 	Route::post('/administrador/add-personal', 'AdminController@store')->name('add.personal.post');
 	Route::get('/administrador/registro-personal', 'AdminController@registroPersonal')->name('administrador-registro-personal');
+	Route::get('/administrador/update-personal', 'AdminController@updatePersonal')->name('administador-update-personal');
+	Route::get('/administrador/updated/{id}', 'AdminController@show')->name('administador-update-personal');
 });
 
 /**
