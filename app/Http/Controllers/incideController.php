@@ -16,7 +16,7 @@ class incideController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['generador']);
+        $request->user()->authorizeRoles(['editor']);
         //
         $personales = \CodeQr\Personal::all();
         // dd($personales);

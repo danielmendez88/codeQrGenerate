@@ -42,8 +42,7 @@ class LoginController extends Controller
      */
     protected function redirectTo(){
         // rol de usuario
-        $role = auth()->user()->hasRole('administrador');
-        if (auth()->user()->hasRole('generador')) {
+        if (auth()->user()->hasRole('editor')) {
             # se redirecciona a 
             return '/home';
         } elseif (auth()->user()->hasRole('administrador')) {
