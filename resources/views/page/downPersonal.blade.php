@@ -1,8 +1,8 @@
 @extends("theme.sufee.layout")
 
-@section('title', 'Modificar Registros')
+@section('title', 'Dar de baja de personal')
 
-@section('breadcrumb', '/ Editar Personal')
+@section('breadcrumb', '/ Dar de Baja de Personal')
 
 @section('content')
 
@@ -53,8 +53,8 @@
                                                 @endif
                                             </td>
                                             <td>
-                                            	<a href="{{route("administador-updated-personal", ['id' => \Crypt::encrypt($personal->numeroEnlace) ])}}"><i class="fa fa-pencil-square-o " aria-hidden="true"></i>
-Modificar</a>
+                                            	<a href="{{route("down.personal", ['id' => \Crypt::encrypt($personal->numeroEnlace) ])}}"><i class="fa fa-eraser" aria-hidden="true"></i>
+Baja</a>
                                             </td>
                                         </tr> 
                                     @endforeach

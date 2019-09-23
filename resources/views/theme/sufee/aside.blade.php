@@ -22,7 +22,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Modificaciones</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-th"></i><a href="/administrador/update-personal">Editar Personal</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Baja de Personal</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route("administador-down-personal") }}">Baja de Personal</a></li>
                     </ul>
                 </li>
 
