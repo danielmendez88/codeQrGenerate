@@ -66,7 +66,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Agregar Nuevo</strong>
-                            </div> 
+                            </div>
                             <div class="card-body">
                                 <div class="card-body">
                                     <!--puesto-->
@@ -126,5 +126,5 @@
             </div>
         </div>
     </div>
-    
+
 @stop

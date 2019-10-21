@@ -56,7 +56,7 @@
                                             	<a href="{{route("down.personal", ['id' => \Crypt::encrypt($personal->numeroEnlace) ])}}"><i class="fa fa-eraser" aria-hidden="true"></i>
 Baja</a>
                                             </td>
-                                        </tr> 
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -68,5 +68,5 @@ Baja</a>
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
-    
+
 @stop

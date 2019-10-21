@@ -47,9 +47,9 @@
                 <div class="user-menu dropdown-menu">
                     <a class="nav-link" href="#"><i class="fa fa-user"></i> Mi Perfil</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                    <a class="nav-link" href="#"><i class="fa fa-cog"></i> Configuraciones </a>
 
-                    <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Salir</a>
+                    <a class="nav-link" href="{{ url('/personal/logout') }}"><i class="fa fa-power-off"></i> Salir</a>
                 </div>
             </div>
 

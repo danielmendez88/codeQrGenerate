@@ -189,7 +189,7 @@ class AdminController extends Controller
     }
 
     /**
-     * 
+     *
      */
     public function addpersonal()
     {
@@ -198,7 +198,7 @@ class AdminController extends Controller
         return view('page.addpersonal', compact('area', 'organo'));
     }
     /**
-     * 
+     *
      */
     public function registroPersonal()
     {
@@ -223,5 +223,14 @@ class AdminController extends Controller
     {
         $person = Personal::WHERE('activo', '=', true)->get();
         return view('page.downPersonal', compact('person'));
+    }
+
+    /**
+     * mostrar el listado del personal dado de baja
+     */
+    public function down()
+    {
+        $downPersonal = Personal::WHERE('activo', '=', false)->get();
+        return view('page.down', compact('downPersonal'));
     }
 }

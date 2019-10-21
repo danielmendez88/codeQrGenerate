@@ -18,7 +18,7 @@
             ->color(176,154,91)
             ->generate('ItSolutionStuff.com');
 
-    
+
 
   return view('qrCode')->with('codes', $qrcodes);
 });*/
@@ -46,7 +46,8 @@ Route::group(['middleware' => ['preventBackButton','auth']], function() {
 	Route::get('/administrador/updated/{id}', 'AdminController@edit')->name('administador-updated-personal');
 	Route::post('/administrador/update/{id}', 'AdminController@update')->name('update.personal');
 	Route::get('/administrador/down-personal', 'AdminController@downPersonal')->name('administador-down-personal');
-	Route::get('/administrador/down/{id}', 'AdminController@destroy')->name('down.personal');
+    Route::get('/administrador/down/{id}', 'AdminController@destroy')->name('down.personal');
+    Route::get('/administrador/downs', 'AdminController@down')->name('downlist');
 
 });
 
