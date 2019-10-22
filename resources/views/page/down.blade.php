@@ -2,9 +2,21 @@
 
 @section('title', 'Personal dado de baja')
 
-@section('breadcrumb', '/ Personal en baja')
+@section('breadcrumb', '/ Historico Personal Baja')
 
 @section('content')
+
+    @if (Session::has('success'))
+    <div class="col-sm-12">
+        <div class="alert  alert-success alert-dismissible fade show" role="alert">
+            <span class="badge badge-pill badge-success">Listo!</span> {{ Session::get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    @endif
+
     <!--Content-->
     <div class="content mt-3">
         <div class="animated fadeIn">
@@ -34,7 +46,7 @@
                                             <td>{{$downlist->puesto}}</td>
                                             <td data-toggle="tooltip" data-placement="top" title="{{ Carbon\Carbon::parse($downlist->updated_at)->format('l jS \\of F Y h:i:s A') }}">{{ Carbon\Carbon::parse($downlist->updated_at)->diffForHumans() }}</td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-tasks" aria-hidden="true"></i>
+                                                <a href="#" data-toggle="modal" data-id="{{ \Crypt::encrypt($downlist->numeroEnlace) }}" data-target="#exampleModalCenter"><i class="fa fa-tasks" aria-hidden="true"></i>
                                                 Activar</a>
                                             </td>
                                         </tr>
@@ -60,13 +72,17 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                ¿Desea Modificar el Estado del personal?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Activar</button>
-            </div>
+            <form action="{{ route('up-personal')}}" method="post">
+                @csrf
+                <div class="modal-body">
+                    ¿Desea Modificar el Estado del personal?
+                    <input type="hidden" name="link_number" id="link_number" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Activar</button>
+                </div>
+            </form>
             </div>
         </div>
     </div>

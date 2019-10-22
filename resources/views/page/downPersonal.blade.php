@@ -53,7 +53,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                            	<a href="{{route("down.personal", ['id' => \Crypt::encrypt($personal->numeroEnlace) ])}}"><i class="fa fa-eraser" aria-hidden="true"></i>
+                                            	<a href="#" data-toggle="modal" data-linknumber="{{ \Crypt::encrypt($personal->numeroEnlace) }}" data-target="#modalCenter"><i class="fa fa-eraser" aria-hidden="true"></i>
 Baja</a>
                                             </td>
                                         </tr>
@@ -68,5 +68,30 @@ Baja</a>
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
+
+
+    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Activar Estado del Personal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('down.personal')}}" method="post">
+                @csrf
+                <div class="modal-body">
+                    ¿Desea Modificar el Estado del personal para darle de baja?
+                    <input type="hidden" name="link_number_down" id="link_number_down" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Baja</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 @stop

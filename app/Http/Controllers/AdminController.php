@@ -179,7 +179,11 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
-        $ids = Crypt::decrypt($id);
+    }
+
+    public function destroyed(Request $request)
+    {
+        $ids = Crypt::decrypt($request->link_number_down);
         $personal = Personal::WHERE('numeroEnlace', '=', $ids)->firstOrFail();
         $personal->activo = false;
         $personal->save();
@@ -213,7 +217,7 @@ class AdminController extends Controller
     public function updatePersonal()
     {
         $personales = new Personal;
-        $person = $personales->all();
+        $person = $personales->WHERE('activo', '=', true)->get();
         return view('page.updatePersonal', compact('person'));
     }
     /**
@@ -230,7 +234,21 @@ class AdminController extends Controller
      */
     public function down()
     {
-        $downPersonal = Personal::WHERE('activo', '=', false)->get();
+        $downPersonal = Personal::WHERE('activo', '=', false)->orderBy('updated_at', 'DESC')->get();
         return view('page.down', compact('downPersonal'));
+    }
+
+    /**
+     * cambiar el status a 1 para mostrar de nuevo al usuario
+     */
+    public function upPersonal(Request $request)
+    {
+        $ids = Crypt::decrypt($request->link_number);
+        $personal = Personal::WHERE('numeroEnlace', '=', $ids)->firstOrFail();
+        $personal->activo = true;
+        $personal->save();
+
+        return redirect()->route('downlist')
+                         ->withSuccess('Personal ha sido dado de alta nuevamente.');
     }
 }

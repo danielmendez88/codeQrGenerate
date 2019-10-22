@@ -23,7 +23,7 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-th"></i><a href="/administrador/update-personal">Editar Personal</a></li>
                         <li><i class="menu-icon fa fa-th"></i><a href="{{ route("administador-down-personal") }}">Baja de Personal</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route("downlist") }}">Personal dado de baja</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route("downlist") }}">Historico Personal Baja</a></li>
                     </ul>
                 </li>
 
